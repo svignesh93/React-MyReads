@@ -17,24 +17,6 @@
   flex: 1;
 }
 
-.bookshelf {
-  padding: 0 10px 20px;
-}
-
-@media (min-width: 600px) {
-  .bookshelf {
-    padding: 0 20px 40px;
-  }
-}
-
-.bookshelf-title {
-  border-bottom: 1px solid #dedede;
-}
-
-.bookshelf-books {
-  text-align: center;
-}
-
 .open-search {
   position: fixed;
   right: 25px;
@@ -58,17 +40,4 @@
 
 .open-search button:hover {
   background-color: rgb(0, 102, 0);
-}
-
-/* book cover */
-
-.book-cover {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  background: #eee;
-}
-
-.book-cover-title {
-  padding: 20px 10px 0;
-  text-align: center;
-  font-size: 0.8em;
 }
