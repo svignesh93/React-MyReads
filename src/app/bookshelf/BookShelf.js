@@ -5,10 +5,12 @@ import "./BookShelf.css";
 class BookShelf extends React.Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
+    shelf: PropTypes.string.isRequired,
+    onBookShelfChange: PropTypes.func.isRequired,
   };
 
   render() {
-    const { books, shelf } = this.props;
+    const { books, shelf, onBookShelfChange } = this.props;
 
     return (
       <div className="bookshelf">
@@ -28,7 +30,12 @@ class BookShelf extends React.Component {
                       }}
                     ></div>
                     <div className="book-shelf-changer">
-                      <select>
+                      <select
+                        value={book.shelf}
+                        onChange={(e) =>
+                          onBookShelfChange(book, e.target.value)
+                        }
+                      >
                         <option value="move" disabled>
                           Move to...
                         </option>
@@ -43,7 +50,9 @@ class BookShelf extends React.Component {
                   </div>
                   <div className="book-title">{book.title}</div>
                   {book.authors.map((author) => (
-                    <div className="book-authors">{author}</div>
+                    <div key={author} className="book-authors">
+                      {author}
+                    </div>
                   ))}
                 </div>
               </li>
