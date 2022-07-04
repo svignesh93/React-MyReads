@@ -19,12 +19,14 @@ class Book extends React.Component {
             style={{
               width: 128,
               height: 193,
-              backgroundImage: `url(${book.imageLinks.thumbnail})`,
+              backgroundImage: `url(${
+                book.imageLinks ? book.imageLinks.thumbnail : ""
+              })`,
             }}
           ></div>
           <div className="book-shelf-changer">
             <select
-              value={book.shelf}
+              value={book.shelf ? book.shelf : "none"}
               onChange={(e) => onBookShelfChange(book, e.target.value)}
             >
               <option value="move" disabled>
@@ -38,11 +40,13 @@ class Book extends React.Component {
           </div>
         </div>
         <div className="book-title">{book.title}</div>
-        {book.authors.map((author) => (
-          <div key={author} className="book-authors">
-            {author}
-          </div>
-        ))}
+        {book.author
+          ? book.authors.map((author) => (
+              <div key={author} className="book-authors">
+                {author}
+              </div>
+            ))
+          : ""}
       </div>
     );
   }
